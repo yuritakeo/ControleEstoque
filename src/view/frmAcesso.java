@@ -119,7 +119,7 @@ public class frmAcesso extends javax.swing.JFrame {
     }//GEN-LAST:event_btAcessarActionPerformed
 
     private void btSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairActionPerformed
-        
+        System.exit(0);
     }//GEN-LAST:event_btSairActionPerformed
 
     /**
