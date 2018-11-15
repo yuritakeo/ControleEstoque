@@ -5,9 +5,13 @@
  */
 package view;
 
-import javax.swing.JFrame;
-import view.frmMenu;
+import control.ControleUsuario;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import model.Usuario;
 
 /**
  *
@@ -113,9 +117,26 @@ public class frmAcesso extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btAcessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAcessarActionPerformed
-        frmMenu menu = new frmMenu();
-        dispose();
-        menu.show();
+        Usuario usuario = new Usuario(txtLogin.getText(), txtSenha.getText());
+        
+        ControleUsuario controleUsuario = new ControleUsuario();
+        try {
+            if (controleUsuario.AutenticarUsuario(usuario)){
+                frmMenu menu = new frmMenu();
+                dispose();
+                menu.show();
+            }else{
+                JOptionPane.showMessageDialog(null, "Login e senha Inconrreto ");
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(frmAcesso.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(frmAcesso.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
+
     }//GEN-LAST:event_btAcessarActionPerformed
 
     private void btSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairActionPerformed
@@ -150,10 +171,8 @@ public class frmAcesso extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new frmAcesso().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new frmAcesso().setVisible(true);
         });
     }
 
