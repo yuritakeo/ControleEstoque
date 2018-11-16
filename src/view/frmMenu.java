@@ -5,7 +5,7 @@
  */
 package view;
 
-import view.internal.TelaInterna;
+import internal.CadastroUsuario;
 
 /**
  *
@@ -34,6 +34,10 @@ public class frmMenu extends javax.swing.JFrame {
         barraMenu = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         cadastroUsuario = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
 
         jMenu1.setText("jMenu1");
 
@@ -60,7 +64,20 @@ public class frmMenu extends javax.swing.JFrame {
         });
         jMenu2.add(cadastroUsuario);
 
+        jMenuItem1.setText("Produto");
+        jMenu2.add(jMenuItem1);
+
         barraMenu.add(jMenu2);
+
+        jMenu3.setText("Movimentação");
+
+        jMenuItem2.setText("Entrada");
+        jMenu3.add(jMenuItem2);
+
+        jMenuItem3.setText("Saída");
+        jMenu3.add(jMenuItem3);
+
+        barraMenu.add(jMenu3);
 
         setJMenuBar(barraMenu);
 
@@ -78,14 +95,17 @@ public class frmMenu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    CadastroUsuario novaTela;
     private void cadastroUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroUsuarioActionPerformed
-        TelaInterna novaTela = new TelaInterna();
-        
+        if(novaTela != null){
+            novaTela.dispose();
+            novaTela = null;
+        }
+                
+
+        novaTela = new CadastroUsuario();
         telaInternaMenu.add(novaTela);
         novaTela.show();
-        
-        
-        
     }//GEN-LAST:event_cadastroUsuarioActionPerformed
 
     /**
@@ -116,10 +136,8 @@ public class frmMenu extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new frmMenu().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new frmMenu().setVisible(true);
         });
     }
 
@@ -128,6 +146,10 @@ public class frmMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem cadastroUsuario;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JDesktopPane telaInternaMenu;
     // End of variables declaration//GEN-END:variables
 }

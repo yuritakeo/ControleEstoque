@@ -14,6 +14,14 @@ public class Colaborador {
     private String nome;
     private String cpf;
     private String funcao;
+    private String setor;
+
+    public Colaborador(String nome, String cpf, String funcao, String setor) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.funcao = funcao;
+        this.setor = setor;
+    }
 
     public int getId() {
         return id;
@@ -45,6 +53,10 @@ public class Colaborador {
 
     public void setFuncao(String funcao) {
         this.funcao = funcao;
+    }
+
+    public String toCSV() {
+        return this.id + ";" + this.nome + ";" + this.cpf  + ";" +  this.funcao  + ";" + this.setor;
     }
     
     
