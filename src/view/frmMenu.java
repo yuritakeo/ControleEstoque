@@ -5,6 +5,7 @@
  */
 package view;
 
+import internal.CadastroProduto;
 import internal.CadastroUsuario;
 
 /**
@@ -65,6 +66,11 @@ public class frmMenu extends javax.swing.JFrame {
         jMenu2.add(cadastroUsuario);
 
         jMenuItem1.setText("Produto");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem1);
 
         barraMenu.add(jMenu2);
@@ -107,6 +113,18 @@ public class frmMenu extends javax.swing.JFrame {
         telaInternaMenu.add(novaTela);
         novaTela.show();
     }//GEN-LAST:event_cadastroUsuarioActionPerformed
+
+    CadastroProduto novaTelaProduto;
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        if(novaTelaProduto != null){
+            novaTelaProduto.dispose();
+            novaTelaProduto = null;
+        }
+
+        novaTelaProduto = new CadastroProduto();
+        telaInternaMenu.add(novaTelaProduto);
+        novaTelaProduto.show();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments

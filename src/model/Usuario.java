@@ -53,7 +53,7 @@ public class Usuario {
     }
 
     public String toCSV(Colaborador colaborador) {
-        return this.id + ";" + this.login + ";" + this.senha + colaborador.getId();
+        return this.id + ";" + this.login + ";" + this.senha + ";" + colaborador.getId();
     }
     
     

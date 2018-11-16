@@ -49,7 +49,8 @@ public class UsuarioDao {
  
             
             colaborador.setId(novoIdColaborador);
-            bw.write(colaborador.toCSV() + "\n\n");
+            bw.newLine();
+            bw.write(colaborador.toCSV());
 
             bw.flush();
             bw.close();
@@ -70,7 +71,8 @@ public class UsuarioDao {
             
             
             usuario.setId(novoIdUsuario);
-            bw.write(usuario.toCSV(colaborador) + "\n\n");
+            bw.newLine();
+            bw.write(usuario.toCSV(colaborador));
             
             bw.flush();
             bw.close();
